@@ -22,17 +22,17 @@ for pp in pynet.rates:
         f.write("rate_type  = CAS\n")
         f.write("reactants  =")
         for i in pp.reactants:
-            number = re.findall("\d+\.?\d*", str(i))
+            number = i.A
             word = re.findall(r'[a-zA-Z]', str(i))
             word = ''.join(word)
-            f.write(" " + str(number[0]) + str(word))
+            f.write(" " + str(number) + str(word))
         f.write("\n")
         f.write("products   =")
         for i in pp.products:
-            number = re.findall("\d+\.?\d*", str(i))
+            number = i.A
             word = re.findall(r'[a-zA-Z]', str(i))
             word = ''.join(word)
-            f.write(" " + str(number[0]) + str(word))
+            f.write(" " + str(number) + str(word))
         f.write("\n")
         energy = pp.Q * 1.602176634e-12 * 1.e6
         f.write("energy     = " + str(energy) + "\n")
